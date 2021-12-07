@@ -37,4 +37,7 @@ public class TaskStorage {
                 .get(0);
     }
 
+    public void addTask(Task task) {
+        tasks.add(task);
+    }
 }

@@ -6,7 +6,7 @@
     android:orientation="vertical">
 
     <TextView
-        style="?android:listSeparatorTextViewStyle"
+        style="@style/TextFieldStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/task_name_label" />
@@ -18,7 +18,7 @@
         android:hint="@string/task_name_hint"/>
 
     <TextView
-        style="?android:listSeparatorTextViewStyle"
+        style="@style/TextFieldStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/task_details_label"/>
