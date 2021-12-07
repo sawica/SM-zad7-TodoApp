@@ -40,7 +40,7 @@ public class TaskListFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater){
         super.onCreateOptionsMenu(menu,inflater);
         inflater.inflate(R.menu.fragment_task_menu,menu);
-        MainActivity subtitleItem = (MainActivity) menu.findItem(R.id.show_subtitle);
+        MenuItem subtitleItem = menu.findItem(R.id.show_subtitle);
         if(subtitleVisible) {
                 subtitleItem.setTitle(R.string.hide_subtitle);
         } else {
@@ -93,6 +93,7 @@ public class TaskListFragment extends Fragment {
     private class TaskHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private final TextView nameTextView;
         private final TextView dateTextView;
+        private final ImageView iconImageView;
         Task task;
 
         public TaskHolder(LayoutInflater inflater, ViewGroup parent) {
@@ -101,13 +102,8 @@ public class TaskListFragment extends Fragment {
 
             nameTextView = itemView.findViewById(R.id.task_item_name);
             dateTextView = itemView.findViewById(R.id.task_item_date);
-            ImageView iconImageView = itemView.findViewById(R.id.imageView);
+            iconImageView = itemView.findViewById(R.id.imageView);
             
-            if (task.isDone()) {
-                iconImageView.setImageResource(R.drawable.ic_check);
-            } else {
-                iconImageView.setImageResource(R.drawable.ic_no_check);
-            }
 
         }
 
@@ -115,6 +111,13 @@ public class TaskListFragment extends Fragment {
             this.task = task;
             nameTextView.setText(task.getName());
             dateTextView.setText(task.getDate().toString());
+
+            if (task.isDone()) {
+                iconImageView.setImageResource(R.drawable.ic_check);
+            } else {
+                iconImageView.setImageResource(R.drawable.ic_no_check);
+            }
+
         }
 
         @Override
